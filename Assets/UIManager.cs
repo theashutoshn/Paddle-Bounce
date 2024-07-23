@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public TextMeshProUGUI scoreText;
+    public GameObject creditPanel;
     void Awake()
     {
         Instance = this;
@@ -22,5 +23,15 @@ public class UIManager : MonoBehaviour
     public void UpdateScore(int score)
     {
         scoreText.text = score.ToString();
+    }
+
+    public void OpenGameCredits()
+    {
+        creditPanel.SetActive(true);
+    }
+
+    public void CloseGameCredits()
+    {
+        creditPanel.SetActive(false); 
     }
 }
