@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -17,7 +18,7 @@ public class LevelManager : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began && !IsPointerOverUIObject(touch.position))
             {
                 LoadGame();
             }
@@ -26,7 +27,10 @@ public class LevelManager : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            LoadGame();
+            if (!IsPointerOverUIObject(Input.mousePosition))
+            {
+                LoadGame();
+            }
         }
         
     }
@@ -34,5 +38,16 @@ public class LevelManager : MonoBehaviour
     void LoadGame()
     {
         SceneManager.LoadScene(1);    
+    }
+
+    private bool IsPointerOverUIObject(Vector2 touchPosition)
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = touchPosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        return results.Count > 0;
     }
 }

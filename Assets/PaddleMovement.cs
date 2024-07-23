@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PaddleMovement : MonoBehaviour
@@ -26,8 +27,12 @@ public class PaddleMovement : MonoBehaviour
 
         if(Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
         {
-            Vector2 toucPosition = Touchscreen.current.primaryTouch.position.ReadValue();
-            direction = TouchDirection(toucPosition);
+            Vector2 touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+            if (!IsPointerOverUIObject(touchPosition))
+            {
+                direction = TouchDirection(touchPosition);
+            }
+            
         }
 
 
@@ -48,5 +53,16 @@ public class PaddleMovement : MonoBehaviour
             return 1f;
         }
 
+    }
+
+    private bool IsPointerOverUIObject(Vector2 touchPosition)
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = touchPosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        return results.Count > 0;
     }
 }
