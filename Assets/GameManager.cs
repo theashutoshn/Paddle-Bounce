@@ -42,4 +42,9 @@ public class GameManager : MonoBehaviour
         pauseButton.SetActive(true);
         playButton.SetActive(false);
     }
+
+    public void HomeScreen()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

@@ -12,10 +12,11 @@ public class PaddleMovement : MonoBehaviour
     [SerializeField]
     private float paddleSpeed;
 
-    private float minX = -7.28f;
-    private float maxX = 7.28f;
+    Rigidbody2D rb2d;
+    
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("PlayerMovement");
     }
@@ -38,7 +39,7 @@ public class PaddleMovement : MonoBehaviour
 
         Vector3 newPosition = transform.position + new Vector3(direction, 0, 0) * paddleSpeed * Time.deltaTime;
 
-        newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+        
 
         transform.position = newPosition;
     }
@@ -64,5 +65,14 @@ public class PaddleMovement : MonoBehaviour
         EventSystem.current.RaycastAll(eventData, results);
 
         return results.Count > 0;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Boundaries"))
+        {
+           rb2d.velocity = Vector2.zero;
+        }
+        
     }
 }

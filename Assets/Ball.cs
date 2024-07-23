@@ -28,6 +28,7 @@ public class Ball : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Paddle"))
         {
+            AudioManager.instance.BallBounce();
             StartBounce();
             Score();
         }
