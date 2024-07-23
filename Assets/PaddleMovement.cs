@@ -10,6 +10,9 @@ public class PaddleMovement : MonoBehaviour
 
     [SerializeField]
     private float paddleSpeed;
+
+    private float minX = -7.28f;
+    private float maxX = 7.28f;
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -20,6 +23,30 @@ public class PaddleMovement : MonoBehaviour
     void Update()
     {
         float direction = moveAction.ReadValue<float>();
-        transform.position += new Vector3(direction, 0, 0) * paddleSpeed * Time.deltaTime;
+
+        if(Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+        {
+            Vector2 toucPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+            direction = TouchDirection(toucPosition);
+        }
+
+
+        Vector3 newPosition = transform.position + new Vector3(direction, 0, 0) * paddleSpeed * Time.deltaTime;
+
+        newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+
+        transform.position = newPosition;
+    }
+
+    private float TouchDirection(Vector2 touchPosition)
+    {
+        if(touchPosition.x < Screen.width/2)
+        {
+            return -1f;
+        }else
+        {
+            return 1f;
+        }
+
     }
 }

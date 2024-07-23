@@ -41,7 +41,8 @@ public class Ball : MonoBehaviour
     void StartBounce()
     {
         Vector2 randomDirection = new Vector2(Random.Range(-1, 1), 1);
-        rb2d.AddForce(randomDirection * bounceForce, ForceMode2D.Impulse );
+        //rb2d.AddForce(randomDirection * bounceForce, ForceMode2D.Impulse );
+        rb2d.velocity += randomDirection * bounceForce;
     }
 
     void Score()
