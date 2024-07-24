@@ -6,6 +6,7 @@ Welcome to the "Paddle Bounce" game! This addictive arcade game tests your refle
 ## Game Overview
 
 ##Features:
+
 **Addictive Gameplay:** Keep the ball bouncing and prevent it from falling, challenging your reflexes and precision.
 
 **Increasing Difficulty:** Levels get progressively harder with increasing speed and dynamic obstacles.
@@ -14,7 +15,7 @@ Welcome to the "Paddle Bounce" game! This addictive arcade game tests your refle
 
 **Intense Fun:** Each level promises excitement and keeps you hooked.
 
-**Alpha Testing:** The game is currently in alpha testing and can be played on itch.io/paddlebounce.
+**Alpha Testing:** The game is currently in alpha testing and can be played on https://theashutoshn.itch.io/paddle-bounce
 
 Why Play Paddle Bounce?
 Paddle Bounce is perfect for those seeking a quick and fun challenge. Its progressively difficult levels and dynamic obstacles provide endless entertainment, making it an ideal game for both casual and dedicated gamers. Download now and see how long you can keep the ball in play!
