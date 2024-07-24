@@ -38,10 +38,12 @@ public class PaddleMovement : MonoBehaviour
 
 
         Vector3 newPosition = transform.position + new Vector3(direction, 0, 0) * paddleSpeed * Time.deltaTime;
-
-        
-
+        float ClampX = Mathf.Clamp(newPosition.x, -8.48f, 8.48f);
+        newPosition = new Vector3(ClampX, newPosition.y, newPosition.z);
         transform.position = newPosition;
+
+
+
     }
 
     private float TouchDirection(Vector2 touchPosition)
