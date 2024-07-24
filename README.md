@@ -5,7 +5,7 @@ Welcome to the "Paddle Bounce" game! This addictive arcade game tests your refle
 
 ## Game Overview
 
-##Features:
+## Features:
 
 **Addictive Gameplay:** Keep the ball bouncing and prevent it from falling, challenging your reflexes and precision.
 
