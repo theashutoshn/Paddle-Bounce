@@ -6,7 +6,8 @@ public class Ball : MonoBehaviour
 {
     Rigidbody2D rb2d;
     public float bounceForce;
-    private int score = 0;
+    private int playerscore = 0;
+    private int aiScore = 0;
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -30,12 +31,34 @@ public class Ball : MonoBehaviour
         {
             AudioManager.instance.BallBounce();
             StartBounce();
-            Score();
+            playerscore++;
+            PlayerScore();
+            
         }
+        
+        if(other.gameObject.CompareTag("AIPaddle"))
+        {
+            AudioManager.instance.BallBounce();
+            //StartBounce();
+            aiScore++;
+            AIScore();
+            
+        }
+        
+
 
         if (other.gameObject.CompareTag("FallCheck"))
         {
-            GameManager.instance.Restart();
+            UIManager.Instance.LoosePanel();
+            Time.timeScale = 0f;
+            //GameManager.instance.Restart();
+        }
+        
+        if (other.gameObject.CompareTag("AISideFallCheck"))
+        {
+            UIManager.Instance.WinPanel();
+            //GameManager.instance.Restart();
+            Time.timeScale = 0f;
         }
     }
 
@@ -46,10 +69,16 @@ public class Ball : MonoBehaviour
         rb2d.velocity += randomDirection * bounceForce;
     }
 
-    void Score()
+    void PlayerScore()
     {
-        score++;
-        UIManager.Instance.UpdateScore(score);
+        
+        UIManager.Instance.PlayerScoreUpdate(playerscore);
+    }
+
+    void AIScore()
+    {
+        
+        UIManager.Instance.AIScoreUpdate(aiScore);
     }
 
     

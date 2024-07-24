@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+
         string sceneName = SceneManager.GetActiveScene().name;
         
         switch(gameMode)
@@ -46,6 +47,8 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("AIPlayer");
                 break;
         }
+
+        Time.timeScale = 1;
         
     }
 

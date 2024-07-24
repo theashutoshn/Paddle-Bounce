@@ -7,6 +7,8 @@ TagManager:
   - Paddle
   - FallCheck
   - Boundaries
+  - AIPaddle
+  - AISideFallCheck
   layers:
   - Default
   - TransparentFX
