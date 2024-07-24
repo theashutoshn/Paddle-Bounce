@@ -9,6 +9,7 @@ TagManager:
   - Boundaries
   - AIPaddle
   - AISideFallCheck
+  - PlayerSideFallCheck
   layers:
   - Default
   - TransparentFX

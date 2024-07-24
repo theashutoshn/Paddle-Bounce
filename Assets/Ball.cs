@@ -49,6 +49,11 @@ public class Ball : MonoBehaviour
 
         if (other.gameObject.CompareTag("FallCheck"))
         {
+            GameManager.instance.Restart();
+        }
+        
+        if (other.gameObject.CompareTag("PlayerSideFallCheck"))
+        {
             UIManager.Instance.LoosePanel();
             Time.timeScale = 0f;
             //GameManager.instance.Restart();

@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began && !IsPointerOverUIObject(touch.position))
             {
-                LoadGame();
+                
             }
 
         }
@@ -29,15 +29,20 @@ public class LevelManager : MonoBehaviour
         {
             if (!IsPointerOverUIObject(Input.mousePosition))
             {
-                LoadGame();
+                
             }
         }
         
     }
 
-    void LoadGame()
+    public void PlayerGameScene()
     {
         SceneManager.LoadScene(1);    
+    }
+
+    public void AIPlayerGameScene()
+    {
+        SceneManager.LoadScene(2);
     }
 
     private bool IsPointerOverUIObject(Vector2 touchPosition)
