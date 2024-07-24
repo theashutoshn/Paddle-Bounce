@@ -184,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.905605
+  orthographic size: 4.853132
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -636,7 +636,7 @@ Transform:
   m_GameObject: {fileID: 1016506790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.7556047, z: 0}
+  m_LocalPosition: {x: 0, y: 4.7031317, z: 0}
   m_LocalScale: {x: 25.11, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1209,6 +1209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 2005216007}
   pauseButton: {fileID: 1513193395}
+  gameMode: 0
 --- !u!4 &1504568684
 Transform:
   m_ObjectHideFlags: 0
@@ -1664,8 +1665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6ea415016fc364a96c85bbd7d797d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1740039929}
+  playerScoreText: {fileID: 1740039929}
+  aiScoreText: {fileID: 0}
   creditPanel: {fileID: 0}
+  winPanel: {fileID: 0}
+  loosePanel: {fileID: 0}
 --- !u!4 &1828944029
 Transform:
   m_ObjectHideFlags: 0
