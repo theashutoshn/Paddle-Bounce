@@ -7,8 +7,11 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI playerScoreText;
+    public TextMeshProUGUI aiScoreText;
     public GameObject creditPanel;
+    public GameObject winPanel;
+    public GameObject loosePanel;
     void Awake()
     {
         Instance = this;
@@ -20,10 +23,17 @@ public class UIManager : MonoBehaviour
         
     }
     
-    public void UpdateScore(int score)
+    public void PlayerScoreUpdate(int score)
     {
-        scoreText.text = score.ToString();
+        playerScoreText.text = score.ToString();
     }
+    
+    public void AIScoreUpdate(int score)
+    {
+        aiScoreText.text = score.ToString();
+    }
+
+
 
     public void OpenGameCredits()
     {
@@ -33,5 +43,18 @@ public class UIManager : MonoBehaviour
     public void CloseGameCredits()
     {
         creditPanel.SetActive(false); 
+    }
+
+
+    public void WinPanel()
+    {
+        loosePanel.SetActive(false);
+        winPanel.SetActive(true);
+    }
+
+    public void LoosePanel()
+    {
+        winPanel.SetActive(false);
+        loosePanel.SetActive(true);
     }
 }

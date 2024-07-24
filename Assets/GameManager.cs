@@ -9,6 +9,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject playButton;
     public GameObject pauseButton;
+
+    public enum GameMode
+    {
+        SinglePlayer,
+        AIPlayer
+    }
+
+    public GameMode gameMode;
     private void Awake()
     {
         instance = this;
@@ -26,7 +34,22 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+
+        string sceneName = SceneManager.GetActiveScene().name;
+        
+        switch(gameMode)
+        {
+            case GameMode.SinglePlayer:
+                SceneManager.LoadScene("SinglePlayer");
+                break;
+
+            case GameMode.AIPlayer:
+                SceneManager.LoadScene("AIPlayer");
+                break;
+        }
+
+        Time.timeScale = 1;
+        
     }
 
     public void PauseGame()
