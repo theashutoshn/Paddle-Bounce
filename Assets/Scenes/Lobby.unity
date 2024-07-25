@@ -1716,7 +1716,7 @@ MonoBehaviour:
   _gameSceneName:
     RawValue: 6
   _statusText: {fileID: 1714670186}
-  _playerPrefab: {fileID: 8010228526931239942, guid: 90a68d9c9d5fcc3469a19fe56bd9e5ed, type: 3}
+  _playerPrefab: {fileID: 251124612291513987, guid: b14a5ec396c01584d88265e8b937a7a8, type: 3}
 --- !u!4 &1410918544
 Transform:
   m_ObjectHideFlags: 0

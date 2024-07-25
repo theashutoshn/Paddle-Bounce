@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ConnectionManager : MonoBehaviour
 {
-    //[SerializeField] private NetworkRunner _networkRunnerPrefab;
+    [SerializeField] private NetworkRunner _networkRunnerPrefab;
 
     private NetworkRunner _runner;
     void Start()
@@ -18,8 +18,8 @@ public class ConnectionManager : MonoBehaviour
     {
         if(_runner == null)
         {
-            //_runner = Instantiate(_networkRunnerPrefab);
-            Debug.Log("_runner is null");
+            _runner = Instantiate(_networkRunnerPrefab);
+            
         }
         await _runner.StartGame(new StartGameArgs()
         {
