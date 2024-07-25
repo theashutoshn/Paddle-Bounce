@@ -1,5 +1,4 @@
 using Fusion;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -25,6 +24,9 @@ public class MultiplerPaddle : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Object.HasStateAuthority)
+            return;
+
         float direction = moveAction.ReadValue<float>();
 
         if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
@@ -34,17 +36,12 @@ public class MultiplerPaddle : NetworkBehaviour
             {
                 direction = TouchDirection(touchPosition);
             }
-
         }
-
 
         Vector3 newPosition = transform.position + new Vector3(direction, 0, 0) * paddleSpeed * Time.deltaTime;
         float ClampX = Mathf.Clamp(newPosition.x, -8.48f, 8.48f);
         newPosition = new Vector3(ClampX, newPosition.y, newPosition.z);
         transform.position = newPosition;
-
-
-
     }
 
     private float TouchDirection(Vector2 touchPosition)
@@ -57,7 +54,6 @@ public class MultiplerPaddle : NetworkBehaviour
         {
             return 1f;
         }
-
     }
 
     private bool IsPointerOverUIObject(Vector2 touchPosition)
@@ -77,6 +73,5 @@ public class MultiplerPaddle : NetworkBehaviour
         {
             rb2d.velocity = Vector2.zero;
         }
-
     }
 }

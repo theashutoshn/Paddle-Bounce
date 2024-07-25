@@ -1,14 +1,36 @@
 using Fusion;
 using Fusion.Sockets;
-using System;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class NetworkCallbacks : MonoBehaviour, INetworkRunnerCallbacks
+public class PlayerSpawner : MonoBehaviour
 {
+    [SerializeField] private GameObject playerPrefab;
+
+    private void Start()
+    {
+        NetworkRunner runner = FindObjectOfType<NetworkRunner>();
+        runner.AddCallbacks(new PlayerSpawnCallbacks(playerPrefab));
+    }
+}
+
+public class PlayerSpawnCallbacks : INetworkRunnerCallbacks
+{
+    private GameObject playerPrefab;
+    private Vector3 spawnPosition = new Vector3(0, -4.2f, 0);
+
+    public PlayerSpawnCallbacks(GameObject playerPrefab)
+    {
+        this.playerPrefab = playerPrefab;
+    }
+
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
-        // Player spawning is handled by PlayerSpawner script, so no need to do it here.
+        if (runner.IsServer)
+        {
+            runner.Spawn(playerPrefab, spawnPosition, Quaternion.identity, player);
+        }
     }
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player) { }
