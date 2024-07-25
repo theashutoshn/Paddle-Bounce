@@ -44,6 +44,11 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+    
+    public void MultiplayerGameScene()
+    {
+        SceneManager.LoadScene(3);
+    }
 
     private bool IsPointerOverUIObject(Vector2 touchPosition)
     {
