@@ -16,7 +16,7 @@ public class LobbyManager : MonoBehaviour
     [SerializeField] private TMP_InputField _roomNameInput;
     [SerializeField] private SceneRef _gameSceneName;
     [SerializeField] private TextMeshProUGUI _statusText;
-    [SerializeField] private GameObject _playerPrefab;
+    
 
 
 
@@ -67,7 +67,7 @@ public class LobbyManager : MonoBehaviour
             else
             {
                 SetStatus("Connected successfully!");
-                _runner.AddCallbacks(new NetworkCallbacks(_playerPrefab));
+                
             }
         }
         catch (Exception e)
