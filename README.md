@@ -1,6 +1,8 @@
 # Paddle-Bounce
 
-Welcome to the "Paddle Bounce" game! This addictive arcade game tests your reflexes and precision by having you control a small paddle to keep a ball bouncing within a closed boundary. With increasing speed and dynamic obstacles, each level promises intense fun and excitement.
+Welcome to the "Paddle Bounce" game! This addictive arcade game tests your reflexes and precision by having you control a small paddle to keep a ball bouncing within a closed boundary. With increasing speed and dynamic obstacles, each level promises intense fun and excitement. Currently, the game consists of Single Player and AI Player.
+
+### Multiplayer Coming Soon
 
 
 ## Game Overview
