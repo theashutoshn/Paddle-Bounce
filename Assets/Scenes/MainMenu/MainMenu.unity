@@ -988,7 +988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Paddel Bounce
+  m_text: Paddle Bounce
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e825846fb1fcd4f419d7737dcad59d71, type: 2}
   m_sharedMaterial: {fileID: -6324171010728092124, guid: e825846fb1fcd4f419d7737dcad59d71, type: 2}
