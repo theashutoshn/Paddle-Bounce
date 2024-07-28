@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class PaddleMovement : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class PaddleMovement : MonoBehaviour
     private float paddleSpeed;
 
     Rigidbody2D rb2d;
-    
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -26,14 +26,14 @@ public class PaddleMovement : MonoBehaviour
     {
         float direction = moveAction.ReadValue<float>();
 
-        if(Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
         {
             Vector2 touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
             if (!IsPointerOverUIObject(touchPosition))
             {
                 direction = TouchDirection(touchPosition);
             }
-            
+
         }
 
 
@@ -48,10 +48,11 @@ public class PaddleMovement : MonoBehaviour
 
     private float TouchDirection(Vector2 touchPosition)
     {
-        if(touchPosition.x < Screen.width/2)
+        if (touchPosition.x < Screen.width / 2)
         {
             return -1f;
-        }else
+        }
+        else
         {
             return 1f;
         }
@@ -71,10 +72,10 @@ public class PaddleMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Boundaries"))
+        if (other.gameObject.CompareTag("Boundaries"))
         {
-           rb2d.velocity = Vector2.zero;
+            rb2d.velocity = Vector2.zero;
         }
-        
+
     }
 }

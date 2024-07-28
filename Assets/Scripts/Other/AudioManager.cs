@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        
+
     }
 
     private void Start()
@@ -22,12 +22,11 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void BallBounce()
     {
         _AudioSource.PlayOneShot(ballBounceClip);
     }
-
 }

@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 420862220}
   - component: {fileID: 420862219}
   - component: {fileID: 420862218}
-  - component: {fileID: 420862214}
+  - component: {fileID: 420862221}
   m_Layer: 0
   m_Name: AI_Paddle
   m_TagString: AIPaddle
@@ -218,19 +218,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &420862214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 420862213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e031d8611cb499e41ae577252d229186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 1422368374}
 --- !u!70 &420862218
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -333,6 +320,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &420862221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420862213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e031d8611cb499e41ae577252d229186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 1422368374}
 --- !u!1 &499588093
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,8 +586,8 @@ GameObject:
   - component: {fileID: 557221096}
   - component: {fileID: 557221095}
   - component: {fileID: 557221094}
-  - component: {fileID: 557221093}
   - component: {fileID: 557221098}
+  - component: {fileID: 557221099}
   m_Layer: 0
   m_Name: Player_Paddle
   m_TagString: Paddle
@@ -595,19 +595,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &557221093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557221091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb446b95f4eb6a49ac6e154169f8996, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paddleSpeed: 8
 --- !u!114 &557221094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,6 +754,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &557221099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557221091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce20d64e1aecfef4295dc23b68d4b41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddleSpeed: 8
 --- !u!1 &762111814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1407772137}
-  - component: {fileID: 1407772136}
+  - component: {fileID: 1407772138}
   - component: {fileID: 1407772135}
   m_Layer: 0
   m_Name: AudioManager
@@ -1468,19 +1468,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1407772136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407772134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dc420f2323f241488fe962ef3d71b53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballBounceClip: {fileID: 8300000, guid: 7c3f735074843b448871c62d92e3dae1, type: 3}
 --- !u!4 &1407772137
 Transform:
   m_ObjectHideFlags: 0
@@ -1496,6 +1483,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1407772138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407772134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc420f2323f241488fe962ef3d71b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballBounceClip: {fileID: 8300000, guid: 7c3f735074843b448871c62d92e3dae1, type: 3}
 --- !u!1 &1416022193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,10 +1731,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1422368371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1f2fcc5d633d445b4513096b66d5b1, type: 3}
+  m_Script: {fileID: 11500000, guid: a58a0dd9dbb702e48a3302ce369d0b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 2
+  bounceForce: 1
 --- !u!1 &1491640333
 GameObject:
   m_ObjectHideFlags: 0

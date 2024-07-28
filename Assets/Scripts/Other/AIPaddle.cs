@@ -8,16 +8,17 @@ public class AIPaddle : MonoBehaviour
     public Transform ball;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(ball.position.x > transform.position.x)
+        if (ball.position.x > transform.position.x)
         {
             transform.position += Vector3.right * aiSpeed * Time.deltaTime;
-        }else if(ball.position.x < transform.position.x)
+        }
+        else if (ball.position.x < transform.position.x)
         {
             transform.position += Vector3.left * aiSpeed * Time.deltaTime;
         }

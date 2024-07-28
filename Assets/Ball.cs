@@ -15,7 +15,7 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
     void Update()
     {
@@ -27,38 +27,38 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Paddle"))
+        if (other.gameObject.CompareTag("Paddle"))
         {
             AudioManager.instance.BallBounce();
             StartBounce();
             playerscore++;
             PlayerScore();
-            
+
         }
-        
-        if(other.gameObject.CompareTag("AIPaddle"))
+
+        if (other.gameObject.CompareTag("AIPaddle"))
         {
             AudioManager.instance.BallBounce();
             //StartBounce();
             aiScore++;
             AIScore();
-            
+
         }
-        
+
 
 
         if (other.gameObject.CompareTag("FallCheck"))
         {
             GameManager.instance.Restart();
         }
-        
+
         if (other.gameObject.CompareTag("PlayerSideFallCheck"))
         {
             UIManager.Instance.LoosePanel();
             Time.timeScale = 0f;
             //GameManager.instance.Restart();
         }
-        
+
         if (other.gameObject.CompareTag("AISideFallCheck"))
         {
             UIManager.Instance.WinPanel();
@@ -76,15 +76,13 @@ public class Ball : MonoBehaviour
 
     void PlayerScore()
     {
-        
+
         UIManager.Instance.PlayerScoreUpdate(playerscore);
     }
 
     void AIScore()
     {
-        
+
         UIManager.Instance.AIScoreUpdate(aiScore);
     }
-
-    
 }
