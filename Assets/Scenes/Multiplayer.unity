@@ -169,8 +169,10 @@ MonoBehaviour:
   WordOffset: 0
   WordCount: 0
   _interpolationDataSource: 3
-  playerNetworkPrefab:
+  greenPlayerPrefab:
     RawGuidValue: c1f8dac878d37954aacd6f6b592e57b3
+  redPlayerPrefab:
+    RawGuidValue: 65a675975162d864faefa86448920fdc
   spawnPoints:
   - {fileID: 565150820}
   - {fileID: 2075679816}
@@ -445,7 +447,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.853132
+  orthographic size: 5.9044714
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

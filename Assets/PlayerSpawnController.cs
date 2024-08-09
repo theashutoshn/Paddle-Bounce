@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class PlayerSpawnController : NetworkBehaviour, IPlayerJoined, IPlayerLeft
 {
-    [SerializeField] private NetworkPrefabRef playerNetworkPrefab = NetworkPrefabRef.Empty;
+    //[SerializeField] private NetworkPrefabRef playerNetworkPrefab = NetworkPrefabRef.Empty;
+    [SerializeField] private NetworkPrefabRef greenPlayerPrefab = NetworkPrefabRef.Empty;
+    [SerializeField] private NetworkPrefabRef redPlayerPrefab = NetworkPrefabRef.Empty;
     [SerializeField] private Transform[] spawnPoints;
-
+    private Vector3 playerSpawnPoint;
     public override void Spawned()
     {
         base.Spawned();
@@ -25,9 +27,21 @@ public class PlayerSpawnController : NetworkBehaviour, IPlayerJoined, IPlayerLef
     {
         if(Runner.IsServer)
         {
+            NetworkPrefabRef selectPrefab;
+
             var index = playerRef % spawnPoints.Length;
-            var playerSpawnPoint = spawnPoints[index].transform.position;
-            var playerObject = Runner.Spawn(playerNetworkPrefab, playerSpawnPoint, Quaternion.identity, playerRef);
+            if(playerRef == Runner.LocalPlayer)
+            {
+                playerSpawnPoint = spawnPoints[0].transform.position;
+                selectPrefab = greenPlayerPrefab;
+            }
+            else
+            {
+                playerSpawnPoint = spawnPoints[1].transform.position;
+                selectPrefab = redPlayerPrefab;
+            }            
+            
+            var playerObject = Runner.Spawn(selectPrefab, playerSpawnPoint, Quaternion.identity, playerRef);
             Runner.SetPlayerObject(playerRef, playerObject); // this will set this player a local player object
         }
     }

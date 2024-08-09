@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2601689516733583678}
   - component: {fileID: 7092498943350681190}
   m_Layer: 0
-  m_Name: P1_Paddle
+  m_Name: P2_Paddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   AoiPositionSource: {fileID: 0}
   Flags: 2305
   NetworkGuid:
-    RawGuidValue: c1f8dac878d37954aacd6f6b592e57b3
+    RawGuidValue: 65a675975162d864faefa86448920fdc
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 2601689516733583678}
@@ -226,7 +226,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8e80f9b5aa9b7224ebd28d2ee290cb34, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.10935044, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.0077323914, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
