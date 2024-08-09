@@ -1,10 +1,11 @@
+using Fusion;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
-public class PaddleMovement : MonoBehaviour
+public class MPlayerMovement : NetworkBehaviour
 {
     PlayerInput playerInput;
     InputAction moveAction;
@@ -15,16 +16,26 @@ public class PaddleMovement : MonoBehaviour
 
     Rigidbody2D rb2d;
 
-    void Start()
+    public override void Spawned()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        playerInput = GetComponent<PlayerInput>();
-        moveAction = playerInput.actions.FindAction("PlayerMovement");
+
+        if(Object.HasInputAuthority)
+        {
+            playerInput = GetComponent<PlayerInput>();
+            moveAction = playerInput.actions.FindAction("PlayerMovement");
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    public override void FixedUpdateNetwork()
     {
+        if (!Object.HasInputAuthority)
+        {
+           return;
+        }
+
+      
         float direction = moveAction.ReadValue<float>();
 
         if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
@@ -38,16 +49,24 @@ public class PaddleMovement : MonoBehaviour
         }
 
 
-        Vector3 newPosition = transform.position + new Vector3(direction, 0, 0) * paddleSpeed * Time.deltaTime;
+        Vector3 newPosition = transform.position + new Vector3(direction, 0, 0) * paddleSpeed * Runner.DeltaTime;
         float ClampX = Mathf.Clamp(newPosition.x, -8.48f, 8.48f);
         newPosition = new Vector3(ClampX, newPosition.y, newPosition.z);
         transform.position = newPosition;
 
-
+        if (Object.HasStateAuthority)
+        {
+            rb2d.MovePosition(newPosition);
+        }
+        else
+        {
+            // Update the transform position for smooth movement on the client side
+            transform.position = newPosition;
+        }
 
     }
 
-    private float TouchDirection(Vector2 touchPosition)
+    public float TouchDirection(Vector2 touchPosition)
     {
         if (touchPosition.x < Screen.width / 2)
         {
